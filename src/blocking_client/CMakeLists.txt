@@ -11,3 +11,8 @@ ENDIF(Boost_FOUND)
 SET(USED_LIBS ${Boost_SYSTEM_LIBRARY})
 
 ADD_EXECUTABLE(client client.cpp)
+
+FIND_PACKAGE(Threads)
+IF(Threads_FOUND)
+  target_link_libraries(client Threads::Threads)
+ENDIF(Threads_FOUND)
